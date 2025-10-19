@@ -1,0 +1,140 @@
+:root {
+  --ink:#0f172a; --muted:#64748b; --line:#e5e7eb; --bg:#f8fafc;
+  --primary:#2563eb; --primary-weak:#dbeafe; --accent:#10b981;
+}
+
+*{box-sizing:border-box}
+body{margin:0; font-family:system-ui,Segoe UI,Roboto,Arial; background:#f1f5f9; color:var(--ink)}
+
+.container{max-width:1100px;margin:0 auto;padding:20px 16px}
+.nav{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-bottom:16px}
+.brand{font-weight:800;color:#1e3a8a}
+.row{display:flex;gap:8px;align-items:center}
+.score{color:#334155}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 420px; /* จาก 340px → 420px */
+  gap: 20px;
+}
+@media (max-width: 900px){ .grid{grid-template-columns:1fr} }
+
+.card{background:#fff;border:1px solid var(--line);border-radius:12px}
+.wrap{padding:14px}
+
+.segment{display:flex;gap:6px;background:var(--primary-weak);padding:4px;border-radius:10px;margin-right:10px}
+.segment>button{border:1px solid transparent;background:transparent;padding:8px 12px;border-radius:8px;font-weight:700;color:#1e40af;cursor:pointer}
+.segment>button.active{background:#bfdbfe;border-color:#93c5fd;color:#1d4ed8}
+
+.btn{border:1px solid var(--line);background:#fff;padding:8px 12px;border-radius:8px;cursor:pointer}
+.btn:hover{background:#f8fafc}
+.btn.primary{background:var(--primary);color:#fff;border-color:var(--primary)}
+.btn.ghost{background:transparent}
+
+.subtle{color:var(--muted)}
+.timer{font-weight:800;color:#1d4ed8}
+
+.panel{border:1px solid var(--line);background:#f8fafc;border-radius:10px;padding:12px;margin-top:10px}
+.panel.error{border-color:#fecaca;background:#fee2e2;color:#991b1b}
+
+.input{width:100%;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:18px;outline:none}
+.input:disabled{background:#f1f5f9;color:#94a3b8}
+
+.target{display:flex;flex-wrap:wrap;gap:8px;align-items:center;min-height:56px}
+.box{min-width:24px;min-height:36px;border:2px dashed #cbd5e1;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+.count{font-size:36px;text-align:center;margin:8px 0;color:#0f172a;font-weight:900}
+
+.afterTarget{ margin-bottom: 18px; }
+
+.ans{
+  background:#eef2ff;
+  border-radius:6px;
+  padding:2px 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+/* ====== Stats (กล่องสรุปด้านขวา) ====== */
+.panel.stats {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 20px; /* เดิม 14px */
+  background: linear-gradient(180deg, #ffffff, #fbfbff);
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.kpi {
+  background: #ffffff;
+  border: 1px solid #eef2f7;
+  border-radius: 12px;
+  padding: 10px 12px;
+  box-shadow: 0 1px 0 rgba(16,24,40,.04);
+}
+.kpi-label {
+  font-size: 12.5px;
+  color: #6b7280;
+  letter-spacing: .2px;
+}
+.kpi-value {
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 2px;
+  display: flex; align-items: center; gap: 6px;
+}
+.badge {
+  font-size: 12px;
+  padding: 2px 6px;
+  background: #fff7ed;
+  border: 1px solid #fde68a;
+  border-radius: 999px;
+}
+
+.pill {
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+.pill.lv-easy   { background: #ecfdf5; color: #065f46; border-color: #a7f3d0; }   /* เขียวมิ้นท์ */
+.pill.lv-normal { background: #eff6ff; color: #1e3a8a; border-color: #bfdbfe; }   /* น้ำเงินอ่อน */
+.pill.lv-hard   { background: #fef2f2; color: #991b1b; border-color: #fecaca; }   /* แดงอ่อน */
+
+.stats-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+
+.user-chip {
+  display: flex; gap: 10px; align-items: center;
+}
+.user-chip .avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-weight: 700; background: #f0f9ff; color: #0369a1; border: 1px solid #e0f2fe;
+}
+.user-chip .user-name { font-weight: 600; }
+.user-chip .user-sub { color: #6b7280; font-size: 12.5px; }
+
+.mini-note {
+  font-size: 13px;
+  color: #334155;
+  display: grid; gap: 2px;
+  text-align: right;
+}
+
+/* ทำให้ layout ดูลงตัวขึ้นบนจอเล็ก */
+@media (max-width: 920px) {
+  .grid { grid-template-columns: 1fr; }
+  .panel.stats { width: 100%; }
+}
